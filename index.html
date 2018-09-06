@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        top: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+</style>
+
+<body>
+
+    <section class="message">
+        <div class="content">
+            <ul id="messageList"></ul>
+        </div>
+
+        <form id="postMessageForm">
+            <label> 姓名<input name='name' id='name' type="text"></label>
+            <label> 内容<input name='contain' id="contain" type="text"></label>
+            <input type="submit">
+        </form>
+    </section>
+
+
+
+
+
+
+
+
+    <script>
+        //这是我的构造函数
+        function Human(option) {
+            //构造函数内部的this可以代表构造出来的对象
+            this.name = option.name
+            this.city = option.city
+        }
+
+        // 通过构造函数内部prototype属性，我们可以写出构造对象继承的公共属性
+        Human.prototype.species = 'human'
+        Human.prototype.walk = function() {
+            console.log('我会走哦!')
+        }
+        Human.prototype.useTools = function() {
+            console.log(this.name + '我会使用工具')
+        }
+
+        // 构造函数通过new命令实例化对象
+        var human = new Human({
+            name: 'Frank',
+            city: 'Hangzhou'
+        })
+        var human2 = new Human({
+            name: 'Jack',
+            city: 'Hangzhou'
+        })
+
+
+        //对human的测试
+        console.log(human.species)
+        human.walk()
+        human.useTools()
+        console.log(human.__proto__.constructor === Human)
+
+
+        //对human2的测试
+        console.log(human2.species)
+        human2.walk()
+        human2.walk = function() {
+            console.log('嘿他妈的跑了')
+        }
+        human2.walk()
+        console.log(human2.__proto__.constructor === Human)
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 引入的CDNjs文件 -->
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
+    <script src="./js/message.js"></script>
+
+</body>
+
+</html>
