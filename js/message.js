@@ -1,6 +1,7 @@
 ! function() {
 
     var view = document.querySelector('section.message')
+
     var model = {
         init: function() {
             console.log(2)
@@ -72,7 +73,7 @@
 
             let myForm = this.form
                 // 给form表单增加监听，监听submit事件，这样无论点击submit还是回车都可以提交表单
-            myForm.addEventListener('submit', function(e) {
+            myForm.addEventListener('submit', (e) => {
                 // 此处e表示表单对象
                 // 阻止默认表单时间，即不跳转页面
                 e.preventDefault()
