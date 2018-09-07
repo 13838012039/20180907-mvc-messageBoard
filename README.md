@@ -13,3 +13,5 @@ MVC是什么？
 总的来说，MVC是一种代码组织形式，是组织代码的思想，不是任何一种框架，技术。
 我们要做的事情是，把V和M传给C，C负责初始化M，对V进行操作
 
+单向通信过程：Controller监听View在用户操作下的事件，View通知Controller，Controller调用Model的数据，
+Model向Sever请求；Sever响应Model，Model返回数据给Controller，Controller更新View。
